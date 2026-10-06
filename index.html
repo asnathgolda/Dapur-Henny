@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dapur Henny — Manisnya Momen, Dibuat dengan Hati</title>
+  
+  <!-- Google Fonts: Fredoka & Baloo 2 untuk nuansa playful, Plus Jakarta Sans untuk keterbacaan modern -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 Free CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --cocoa-brown: #5C3A2E;
+      --caramel-brown: #8B5E4A;
+      --strawberry-pink: #F7A8BC;
+      --pastel-pink: #F8C8D4;
+      --blush-pink: #FDE4EA;
+      --cream: #FFF6EC;
+      --peach-butter: #FFE3C8;
+      --dusty-rose: #D98BA0;
+      --white: #FFFFFF;
+      --text-dark: #5C3A2E;
+      --text-muted: #7A574A;
+      --shadow-pink: rgba(217, 139, 160, 0.25);
+      --shadow-cocoa: rgba(92, 58, 46, 0.15);
+      --font-display: 'Fredoka', 'Baloo 2', cursive, sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --radius-sm: 14px;
+      --radius-md: 22px;
+      --radius-lg: 32px;
+      --radius-pill: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background-color: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .brand-font {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--cocoa-brown);
+      line-height: 1.25;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Pola Gingham Lembut Pink-Cream */
+    .gingham-pattern-bg {
+      background-color: var(--cream);
+      background-image: 
+        linear-gradient(90deg, rgba(247, 168, 188, 0.12) 50%, transparent 50%),
+        linear-gradient(rgba(247, 168, 188, 0.12) 50%, transparent 50%);
+      background-size: 36px 36px;
+    }
+
+    /* Polkadot Hati / Polka Dots */
+    .polka-dot-bg {
+      background-image: radial-gradient(var(--pastel-pink) 15%, transparent 16%);
+      background-size: 28px 28px;
+    }
+
+    /* Scalloped divider style */
+    .scallop-divider {
+      width: 100%;
+      height: 24px;
+      background: radial-gradient(circle at 12px 0px, transparent 12px, var(--white) 13px);
+      background-size: 24px 24px;
+    }
+
+    .scallop-divider-inverted {
+      width: 100%;
+      height: 24px;
+      background: radial-gradient(circle at 12px 24px, transparent 12px, var(--white) 13px);
+      background-size: 24px 24px;
+    }
+
+    .region-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--strawberry-pink);
+      color: var(--cocoa-brown);
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 7px 20px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 4px 12px var(--shadow-pink);
+      border: 1.5px solid rgba(92, 58, 46, 0.15);
+      position: relative;
+    }
+
+    .region-badge-pill i {
+      color: var(--cocoa-brown);
+    }
+
+    .btn-cute-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: var(--strawberry-pink);
+      color: var(--cocoa-brown);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 13px 28px;
+      border-radius: var(--radius-pill);
+      border: 2px solid rgba(92, 58, 46, 0.12);
+      box-shadow: 0 6px 16px var(--shadow-pink);
+      cursor: pointer;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-cute-primary:hover {
+      background-color: #fca2b8;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 22px rgba(247, 168, 188, 0.45);
+      color: var(--cocoa-brown);
+    }
+
+    .btn-cute-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: var(--white);
+      color: var(--cocoa-brown);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 13px 28px;
+      border-radius: var(--radius-pill);
+      border: 2px solid var(--caramel-brown);
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(92, 58, 46, 0.08);
+    }
+
+    .btn-cute-secondary:hover {
+      background-color: var(--peach-butter);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(92, 58, 46, 0.14);
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--cocoa-brown);
+      padding: 12px 0;
+      box-shadow: 0 4px 20px var(--shadow-cocoa);
+      border-bottom: 3.5px solid var(--strawberry-pink);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mascot-circle {
+      width: 48px;
+      height: 48px;
+      background: var(--blush-pink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2.5px solid var(--strawberry-pink);
+      color: var(--cocoa-brown);
+      font-size: 1.35rem;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .brand-title-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title-text {
+      color: var(--cream);
+      font-size: 1.45rem;
+      font-family: var(--font-display);
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+    }
+
+    .brand-title-text span {
+      color: var(--strawberry-pink);
+    }
+
+    .brand-subtitle-mini {
+      font-size: 0.75rem;
+      color: var(--peach-butter);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-menu-list {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-menu-list a {
+      color: var(--cream);
+      font-weight: 600;
+      font-size: 0.96rem;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-menu-list a:hover {
+      background: rgba(247, 168, 188, 0.2);
+      color: var(--strawberry-pink);
+    }
+
+    .mobile-hamburger-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--cream);
+      font-size: 1.6rem;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, var(--blush-pink) 0%, var(--cream) 100%);
+      padding: 70px 0 90px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-blob-shape {
+      position: absolute;
+      top: -90px;
+      right: -80px;
+      width: 440px;
+      height: 440px;
+      background: radial-gradient(circle, rgba(248, 200, 212, 0.6) 0%, rgba(248, 200, 212, 0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 45px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text-content h1 {
+      font-size: 3.1rem;
+      line-height: 1.16;
+      color: var(--cocoa-brown);
+      margin: 18px 0 14px;
+    }
+
+    .hero-text-content h1 span {
+      color: var(--dusty-rose);
+      position: relative;
+    }
+
+    .hero-lead-text {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      max-width: 530px;
+    }
+
+    .hero-actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 26px;
+    }
+
+    .hero-handmade-tag {
+      font-size: 0.94rem;
+      color: var(--caramel-brown);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .hero-handmade-tag i {
+      color: var(--dusty-rose);
+    }
+
+    .hero-visual-card-wrap {
+      background: var(--white);
+      border: 4px solid var(--pastel-pink);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: 0 20px 45px var(--shadow-pink);
+      position: relative;
+      text-align: center;
+    }
+
+    .hero-visual-card-wrap img {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      box-shadow: 0 8px 18px rgba(92, 58, 46, 0.08);
+    }
+
+    .hero-card-floating-badge {
+      position: absolute;
+      top: -15px;
+      right: 20px;
+      background: var(--white);
+      color: var(--cocoa-brown);
+      padding: 8px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 700;
+      box-shadow: 0 6px 16px var(--shadow-pink);
+      border: 2px solid var(--strawberry-pink);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .about-section {
+      padding: 85px 0;
+      background-color: var(--white);
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 2.35rem;
+      color: var(--cocoa-brown);
+      margin-bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-desc {
+      max-width: 760px;
+      margin: 0 auto 40px;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      margin-top: 35px;
+    }
+
+    .pillar-card {
+      padding: 34px 24px;
+      border-radius: var(--radius-md);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 30px var(--shadow-pink);
+    }
+
+    .pillar-fresh {
+      background-color: var(--blush-pink);
+      border: 2px solid var(--pastel-pink);
+    }
+
+    .pillar-custom {
+      background-color: var(--peach-butter);
+      border: 2px solid #F5CFA4;
+    }
+
+    .pillar-sweet {
+      background-color: var(--white);
+      border: 2px solid rgba(92, 58, 46, 0.18);
+      box-shadow: 0 8px 24px rgba(92, 58, 46, 0.06);
+    }
+
+    .pillar-icon-box {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 18px;
+      box-shadow: 0 6px 14px var(--shadow-pink);
+      color: var(--dusty-rose);
+      border: 2px solid var(--pastel-pink);
+    }
+
+    .about-region-callout {
+      margin-top: 45px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 28px;
+      background: var(--cream);
+      border: 2px dashed var(--strawberry-pink);
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      color: var(--cocoa-brown);
+      font-size: 0.98rem;
+    }
+
+    .menu-section {
+      padding: 90px 0;
+    }
+
+    .menu-filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 35px 0 45px;
+    }
+
+    .filter-btn-pill {
+      background-color: var(--white);
+      border: 2px solid var(--pastel-pink);
+      color: var(--cocoa-brown);
+      font-family: var(--font-display);
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .filter-btn-pill.active, .filter-btn-pill:hover {
+      background-color: var(--strawberry-pink);
+      color: var(--cocoa-brown);
+      border-color: var(--dusty-rose);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px var(--shadow-pink);
+    }
+
+    .catalog-products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 28px;
+    }
+
+    .product-bakery-card {
+      background-color: var(--white);
+      border-radius: var(--radius-md);
+      border: 1.5px solid rgba(92, 58, 46, 0.12);
+      box-shadow: 0 8px 22px var(--shadow-pink);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      position: relative;
+    }
+
+    .product-bakery-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px var(--shadow-pink);
+      border-color: var(--strawberry-pink);
+    }
+
+    .product-img-box {
+      position: relative;
+      height: 200px;
+      background-color: var(--blush-pink);
+      overflow: hidden;
+    }
+
+    .product-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-bakery-card:hover .product-img-box img {
+      transform: scale(1.08);
+    }
+
+    .product-price-pill {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background-color: var(--peach-butter);
+      color: var(--cocoa-brown);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.02rem;
+      padding: 6px 15px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+      border: 1.5px solid #F0C9A5;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .product-content-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .product-title {
+      font-size: 1.25rem;
+      color: var(--cocoa-brown);
+      margin-bottom: 6px;
+    }
+
+    .product-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .btn-wa-card {
+      width: 100%;
+      padding: 11px;
+      font-size: 0.95rem;
+    }
+
+    .catalog-region-note {
+      text-align: center;
+      margin-top: 45px;
+      font-weight: 700;
+      color: var(--cocoa-brown);
+      font-size: 1rem;
+      background: var(--white);
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: var(--radius-pill);
+      border: 2px solid var(--pastel-pink);
+      box-shadow: 0 4px 12px var(--shadow-pink);
+    }
+
+    .custom-cake-section {
+      background: linear-gradient(135deg, var(--cocoa-brown) 0%, #3e261e 100%);
+      color: var(--cream);
+      padding: 90px 0;
+      position: relative;
+    }
+
+    .custom-cake-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .custom-cake-details h2 {
+      font-size: 2.6rem;
+      color: var(--cream);
+      margin-bottom: 14px;
+    }
+
+    .custom-cake-details h2 span {
+      color: var(--strawberry-pink);
+    }
+
+    .custom-cake-details p.subtext {
+      font-size: 1.08rem;
+      color: #F2E4D8;
+      margin-bottom: 25px;
+    }
+
+    .consultation-items-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .consult-pill-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(4px);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(247, 168, 188, 0.25);
+      color: var(--cream);
+    }
+
+    .consult-pill-box i {
+      color: var(--strawberry-pink);
+    }
+
+    .custom-callout-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 3px dashed var(--strawberry-pink);
+      border-radius: var(--radius-md);
+      padding: 35px 28px;
+      text-align: center;
+      backdrop-filter: blur(6px);
+    }
+
+    .custom-callout-card i.big-icon {
+      font-size: 4rem;
+      color: var(--strawberry-pink);
+      margin-bottom: 16px;
+    }
+
+    .custom-callout-card h3 {
+      color: var(--cream);
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .custom-pricing-notice {
+      font-size: 0.94rem;
+      color: var(--peach-butter);
+      line-height: 1.6;
+    }
+
+    .order-workflow-section {
+      padding: 90px 0;
+      background-color: var(--blush-pink);
+    }
+
+    .workflow-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 45px;
+    }
+
+    .workflow-card {
+      background: var(--white);
+      padding: 30px 20px;
+      border-radius: var(--radius-md);
+      border: 2px solid var(--pastel-pink);
+      text-align: center;
+      box-shadow: 0 8px 18px var(--shadow-pink);
+      position: relative;
+    }
+
+    .workflow-heart-num {
+      width: 54px;
+      height: 54px;
+      background-color: var(--strawberry-pink);
+      color: var(--cocoa-brown);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      border: 2px solid var(--cocoa-brown);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .workflow-step-name {
+      color: var(--cocoa-brown);
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .workflow-step-text {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .workflow-notes-card {
+      margin-top: 45px;
+      background: var(--white);
+      padding: 26px 30px;
+      border-radius: var(--radius-md);
+      border-left: 8px solid var(--dusty-rose);
+      box-shadow: 0 6px 18px var(--shadow-cocoa);
+    }
+
+    .workflow-notes-card h4 {
+      color: var(--cocoa-brown);
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .workflow-notes-card ul {
+      list-style-type: none;
+    }
+
+    .workflow-notes-card li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-dark);
+    }
+
+    .workflow-notes-card li i {
+      color: var(--dusty-rose);
+      font-size: 1rem;
+    }
+
+    .gallery-showcase-section {
+      padding: 90px 0;
+      background-color: var(--white);
+    }
+
+    .gallery-masonry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 45px;
+    }
+
+    .gallery-item-tile {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 3px solid var(--pastel-pink);
+      height: 240px;
+      background: var(--cream);
+      box-shadow: 0 6px 16px var(--shadow-pink);
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item-tile:hover {
+      border-color: var(--dusty-rose);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 14px 28px var(--shadow-pink);
+    }
+
+    .gallery-item-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-tile-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(92, 58, 46, 0.92));
+      color: var(--cream);
+      padding: 16px 14px 12px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      text-align: center;
+      letter-spacing: 0.3px;
+    }
+
+    .faq-accordion-section {
+      padding: 90px 0;
+      background-color: var(--cream);
+    }
+
+    .faq-wrapper-box {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .faq-card-item {
+      background: var(--white);
+      border: 1.5px solid var(--pastel-pink);
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(92, 58, 46, 0.04);
+      transition: border-color 0.25s;
+    }
+
+    .faq-trigger-btn {
+      width: 100%;
+      text-align: left;
+      padding: 18px 22px;
+      background: none;
+      border: none;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--cocoa-brown);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      gap: 15px;
+    }
+
+    .faq-plus-bubble {
+      width: 34px;
+      height: 34px;
+      background-color: var(--strawberry-pink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cocoa-brown);
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+      border: 1.5px solid var(--cocoa-brown);
+    }
+
+    .faq-content-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease-out;
+      padding: 0 22px;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    .faq-card-item.is-active .faq-content-answer {
+      padding-bottom: 20px;
+    }
+
+    .faq-card-item.is-active .faq-plus-bubble {
+      transform: rotate(45deg);
+    }
+
+    .contact-cta-section {
+      background: linear-gradient(135deg, var(--cocoa-brown) 0%, #3a221a 100%);
+      color: var(--cream);
+      padding: 90px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .contact-cta-section h2 {
+      font-size: 2.8rem;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+
+    .contact-cta-section h2 span {
+      color: var(--strawberry-pink);
+    }
+
+    .contact-details-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 36px 0;
+    }
+
+    .contact-info-bubble {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1.5px solid var(--strawberry-pink);
+      padding: 12px 26px;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--cream);
+    }
+
+    .contact-info-bubble i {
+      color: var(--strawberry-pink);
+      font-size: 1.25rem;
+    }
+
+    .contact-cta-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 35px;
+    }
+
+    .operational-notes-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1.5px dashed var(--pastel-pink);
+      padding: 22px 28px;
+      border-radius: var(--radius-md);
+      display: inline-block;
+      font-size: 0.92rem;
+      color: var(--peach-butter);
+      text-align: left;
+      line-height: 1.8;
+    }
+
+    .floating-wa-btn {
+      position: fixed;
+      bottom: 26px;
+      right: 26px;
+      z-index: 1001;
+      background-color: var(--pastel-pink);
+      color: var(--cocoa-brown);
+      padding: 10px 20px 10px 12px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 8px 24px rgba(92, 58, 46, 0.25);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      border: 2px solid var(--cocoa-brown);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .wa-icon-bubble {
+      width: 40px;
+      height: 40px;
+      background-color: #25D366; /* WhatsApp Official Green */
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .floating-wa-btn:hover {
+      transform: scale(1.08) translateY(-4px);
+      box-shadow: 0 12px 28px rgba(92, 58, 46, 0.35);
+      background-color: var(--strawberry-pink);
+    }
+
+    footer.main-footer {
+      background-color: var(--cocoa-brown);
+      color: var(--cream);
+      border-top: 5px solid var(--strawberry-pink);
+      padding: 60px 0 28px;
+    }
+
+    .footer-grid-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.2fr;
+      gap: 35px;
+      margin-bottom: 45px;
+    }
+
+    .footer-brand-bio h3 {
+      font-size: 1.8rem;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    .footer-brand-bio h3 span {
+      color: var(--strawberry-pink);
+    }
+
+    .footer-brand-bio p.footer-tagline {
+      font-style: italic;
+      color: var(--peach-butter);
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .footer-brand-bio p.footer-academic-info {
+      font-size: 0.92rem;
+      color: #D6C2B8;
+      max-width: 440px;
+      line-height: 1.6;
+    }
+
+    .footer-column-title {
+      color: var(--strawberry-pink);
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+
+    .footer-nav-list {
+      list-style: none;
+    }
+
+    .footer-nav-list li {
+      margin-bottom: 10px;
+    }
+
+    .footer-nav-list a {
+      color: var(--cream);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .footer-nav-list a:hover {
+      color: var(--strawberry-pink);
+      padding-left: 6px;
+    }
+
+    .footer-contact-details p {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--cream);
+    }
+
+    .footer-contact-details p i {
+      color: var(--strawberry-pink);
+      font-size: 1.1rem;
+      width: 20px;
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 0.88rem;
+      color: #B59C90;
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid, .custom-cake-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-actions-row {
+        justify-content: center;
+      }
+      .hero-handmade-tag {
+        justify-content: center;
+      }
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+      .workflow-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-text-content h1 {
+        font-size: 2.25rem;
+      }
+      .section-title {
+        font-size: 1.95rem;
+      }
+      .workflow-steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .consultation-items-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-menu-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--cocoa-brown);
+        padding: 22px;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+        border-bottom: 3px solid var(--strawberry-pink);
+        gap: 16px;
+      }
+      .nav-menu-list.is-open {
+        display: flex;
+      }
+      .mobile-hamburger-btn {
+        display: block;
+      }
+      .floating-wa-btn span {
+        display: none;
+      }
+      .floating-wa-btn {
+        padding: 8px;
+        border-radius: 50%;
+      }
+    }
+  </style>
+</head>
+<body class="gingham-pattern-bg">
+
+  <nav class="navbar" id="mainNavbar">
+    <div class="container nav-container">
+      <div class="brand-logo-area">
+        <div class="brand-mascot-circle">
+          <i class="fa-solid fa-cake-candles"></i>
+        </div>
+        <div class="brand-title-wrap">
+          <div class="brand-title-text">DAPUR <span>HENNY</span></div>
+          <div class="brand-subtitle-mini">Homemade Bakery • Tangerang</div>
+        </div>
+      </div>
+
+      <button class="mobile-hamburger-btn" id="mobileMenuBtn" aria-label="Buka Menu Navigasi">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="nav-menu-list" id="navMenuList">
+        <li><a href="#beranda" class="nav-link-item"><i class="fa-solid fa-heart" style="font-size: 0.75rem;"></i> Beranda</a></li>
+        <li><a href="#tentang" class="nav-link-item">Tentang Kami</a></li>
+        <li><a href="#menu" class="nav-link-item">Menu</a></li>
+        <li><a href="#custom" class="nav-link-item">Kue Custom</a></li>
+        <li><a href="#cara-pesan" class="nav-link-item">Cara Pesan</a></li>
+        <li><a href="#galeri" class="nav-link-item">Galeri</a></li>
+        <li><a href="#faq" class="nav-link-item">FAQ</a></li>
+        <li><a href="#kontak" class="nav-link-item">Kontak</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header id="beranda" class="hero-section">
+    <div class="hero-blob-shape"></div>
+    <div class="container hero-grid">
+      <div class="hero-text-content">
+        <div class="region-badge-pill">
+          <i class="fa-solid fa-location-dot"></i> Khusus melayani pemesanan wilayah Tangerang.
+        </div>
+        <h1>Kue Manis untuk <span>Momen yang Berarti</span> 💕</h1>
+        <p class="hero-lead-text">
+          Temukan kue homemade, snack manis, dan kue ulang tahun custom dari Dapur Henny untuk menemani setiap momen spesialmu.
+        </p>
+        
+        <div class="hero-actions-row">
+          <a href="#menu" class="btn-cute-primary">
+            <i class="fa-solid fa-cookie-bite"></i> Lihat Menu
+          </a>
+          <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20memesan%20produk%20untuk%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="btn-cute-primary">
+            <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+          </a>
+        </div>
+        
+        <div class="hero-handmade-tag">
+          <i class="fa-solid fa-heart"></i> 
+          Dibuat dengan bahan pilihan, sentuhan personal, dan rasa yang bikin ingin pesan lagi.
+        </div>
+      </div>
+
+      <div class="hero-visual-card-wrap">
+        <div class="hero-card-floating-badge">
+          🎀 Fresh Homemade Bakery
+        </div>
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=900&auto=format&fit=crop" alt="Aneka Kue Lezat Dapur Henny">
+      </div>
+    </div>
+  </header>
+
+  <section id="tentang" class="about-section">
+    <div class="container">
+      <h2 class="section-title">
+        <i class="fa-solid fa-heart" style="color: var(--strawberry-pink); font-size: 1.8rem;"></i>
+        Dibuat dengan Hati dari Dapur Henny
+      </h2>
+      <p class="section-desc">
+        Dapur Henny hadir untuk menyediakan kue dan camilan yang dapat menemani berbagai momen, mulai dari snack sehari-hari, hadiah kecil, hingga perayaan ulang tahun. Kami percaya bahwa kue bukan hanya makanan, tetapi juga bagian dari cerita dan kebahagiaan setiap orang.
+      </p>
+
+      <div class="pillars-grid">
+        <!-- 1. Homemade & Fresh -->
+        <div class="pillar-card pillar-fresh">
+          <div class="pillar-icon-box">
+            <i class="fa-solid fa-fire-burner"></i>
+          </div>
+          <h3 style="color: var(--cocoa-brown); margin-bottom: 8px;">Homemade & Fresh</h3>
+          <p style="font-size: 0.93rem; color: var(--text-muted);">
+            Dibuat fresh setiap hari dengan bahan-bahan pilihan berkualitas, tanpa bahan pengawet berlebih demi rasa dan tekstur terbaik.
+          </p>
+        </div>
+
+        <!-- 2. Personal & Custom -->
+        <div class="pillar-card pillar-custom">
+          <div class="pillar-icon-box" style="color: #A0522D; border-color: #F5CFA4;">
+            <i class="fa-solid fa-ribbon"></i>
+          </div>
+          <h3 style="color: var(--cocoa-brown); margin-bottom: 8px;">Personal & Custom</h3>
+          <p style="font-size: 0.93rem; color: var(--text-muted);">
+            Setiap momen memiliki kisahnya sendiri. Kami siap mewujudkan tema, warna, dan tulisan kue ulang tahun sesuai impianmu.
+          </p>
+        </div>
+
+        <!-- 3. Sweet & Cheerful -->
+        <div class="pillar-card pillar-sweet">
+          <div class="pillar-icon-box">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <h3 style="color: var(--cocoa-brown); margin-bottom: 8px;">Sweet & Cheerful</h3>
+          <p style="font-size: 0.93rem; color: var(--text-muted);">
+            Menghadirkan kehangatan senyum dan keceriaan di setiap gigitan manis yang menyempurnakan hari bahagiamu.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="about-region-callout">
+          <i class="fa-solid fa-circle-check" style="color: var(--dusty-rose); font-size: 1.2rem;"></i>
+          Dapur Henny melayani pemesanan khusus wilayah Tangerang.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <div style="text-align: center;">
+        <h2 class="section-title">Menu Favorit Dapur Henny 🧁</h2>
+        <div class="region-badge-pill" style="margin-top: 10px;">
+          <i class="fa-solid fa-triangle-exclamation"></i> Pemesanan hanya tersedia untuk wilayah Tangerang.
+        </div>
+      </div>
+
+      <!-- Menu Category Filters -->
+      <div class="menu-filter-bar">
+        <button class="filter-btn-pill active" data-filter="all">Semua Menu</button>
+        <button class="filter-btn-pill" data-filter="kue-kecil">Kue Kecil</button>
+        <button class="filter-btn-pill" data-filter="brownies">Brownies</button>
+        <button class="filter-btn-pill" data-filter="bolu">Bolu</button>
+        <button class="filter-btn-pill" data-filter="kue-ultah">Kue Ulang Tahun</button>
+        <button class="filter-btn-pill" data-filter="snack">Snack</button>
+      </div>
+
+      <!-- 12 Official Products Grid -->
+      <div class="catalog-products-grid" id="catalogProductsContainer">
+        
+        <!-- 1. Brownies Ultah (Rp115.000) -->
+        <div class="product-bakery-card" data-category="brownies kue-ultah">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop" alt="Brownies Ultah Rp115.000">
+            <span class="product-price-pill"><i class="fa-solid fa-tag"></i> Rp115.000</span>
+          </div>
+          <div class="product-content-body">
+            <div>
+              <h3 class="product-title">Brownies Ultah</h3>
+              <p class="product-caption">Pilihan brownies ulang tahun spesial dengan dekorasi figurine manis dan hiasan perayaan istimewa.</p>
+            </div>
+            <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20memesan%20Brownies%20Ultah%20(Rp115.000)%20untuk%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="btn-cute-primary btn-wa-card">
+              <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. Brownies Ultah (Rp135.000) -->
+        <div class="product-bakery-card" data-category="brownies kue-ultah">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1579372786545-d24232daf58c?q=80&w=600&auto=format&fit=crop" alt="Brownies Ultah Rp135.000">
+            <span class="product-price-pill"><i class="fa-solid fa-tag"></i> Rp135.000</span>
+          </div>
+          <div class="product-content-body">
+            <div>
+              <h3 class="product-title">Brownies Ultah</h3>
+              <p class="product-caption">Pilihan brownies ulang tahun dengan hiasan buah strawberry segar melimpah dan lelehan cokelat lezat.</p>
+            </div>
+            <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20memesan%20Brownies%20Ultah%20(Rp135.000)%20untuk%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="btn-cute-primary btn-wa-card">
+              <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Fudgy Brownies -->
+        <div class="product-bakery-card" data-category="brownies">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1515037893149-de7f840978e2?q=80&w=600&auto=format&fit=crop" alt="Fudgy Brownies">
+            <span class="product-price-pill"><i class="fa-solid fa-tag"></i> Rp110.000–Rp115.000</span>
+          </div>
+          <div class="product-content-body">
+            <div>
+              <h3 class="product-title">Fudgy Brownies</h3>
+              <p class="product-caption">Tekstur lembut padat berpadu shiny crust autentik dengan aneka varian sekat topping almond, choco chip, dan keju.</p>
+            </div>
+            <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20memesan%20Fudgy%20Brownies%20untuk%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="btn-cute-primary btn-wa-card">
+              <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Bolu Pisang/Tape -->
+        <div class="product-bakery-card" data-category="bolu">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1549589237-9e70b6be4da8?q=80&w=600&auto=format&fit=crop" alt="Bolu Pisang/Tape">
+            <span class="product-price-pill"><i class="fa-solid fa-tag"></i> Rp25.000</span>
+          </div>
+          <div class="product-content-body">
+            <div>
+              <h3 class="product-title">Bolu Pisang/Tape</h3>
+              <p class="product-caption">Kue bolu lembut beraroma harum pisang atau tape manis klasik, pilihan pas untuk teman ngeteh sore hari.</p>
+            </div>
+            <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20memesan%20Bolu%20Pisang%2FTape%20untuk%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="btn-cute-primary btn-wa-card">
+              <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. Karipap -->
+        <div class="product-bakery-card" data-category="snack">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=600&auto=format&fit=crop" alt="Karipap">
+            <span class="product-price-pill"><i class="fa-solid fa-tag"></i> Rp3.500–Rp5.000</span>
+          </div>
+          <div class="product-content-body">
+            <div>
+              <h3 class="product-title">Karipap</h3>
+              <p class="product-caption">Pastry spiral berkulit renyah berlapis dengan isian kentang bumbu gurih hangat yang menggugah selera.</p>
+            </div>
+            <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20memesan%20Karipap%20untuk%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="btn-cute-primary btn-wa-card">
+              <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- 6. Bolen isi 6 -->
+        <div class="product-bakery-card" data-category="kue-kecil snack">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1587248720327-8eb72564be1e?q=80&w=600&auto=format&fit=crop" alt="Bolen isi 6">
+            <span class="product-price-pill"><i class="fa-solid fa-tag"></i> Rp40.000</span>
+          </div>
+          <div class="product-content-body">
+            <div>
+              <h3 class="product-title">Bolen isi 6</h3>
+              <p class="product-caption">Pastry bolen legit dengan pisang manis lembut dan keju cokelat meleleh dalam kemasan praktis isi 6 pcs.</p>
+            </div>
+            <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20memesan%20Bolen%20isi%206%20untuk%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="btn-cute-primary btn-wa-card">
+              <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- 7. Bolen isi 10 -->
+        <div class="product-bakery-card" data-category="kue-kecil snack">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1587248720327-8eb72564be1e?q=80&w=600&auto=format&fit=crop" alt="Bolen isi 10">
+            <span class="product-price-pill"><i class="fa-solid fa-tag"></i> Rp60.000</span>
+          </div>
+          <div class="product-content-body">
+            <div>
+              <h3 class="product-title">Bolen isi 10</h3>
+              <p class="product-caption">Paket hemat pastry bolen lezat isi 10 pcs, pas disajikan untuk kumpul keluarga, arisan, maupun hantaran.</p>
+            </div>
+            <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20memesan%20Bolen%20isi%2010%20untuk%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="btn-cute-primary btn-wa-card">
+              <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- 8. Cup Cake -->
+        <div class="product-bakery-card" data-category="kue-kecil">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?q=80&w=600&auto=format&fit=crop" alt="Cup Cake">
+            <span class="product-price-pill"><i class="fa-solid fa-tag"></i> Rp12.000</span>
+          </div>
+          <div class="product-content-body">
+            <div>
+              <h3 class="product-title">Cup Cake</h3>
+              <p class="product-caption">Cupcake imut lembut dengan kemasan kotak cantik berpita dan frosting manis untuk hadiah maupun souvenir kecil.</p>
+            </div>
+            <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20memesan%20Cup%20Cake%20untuk%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="btn-cute-primary btn-wa-card">
+              <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- 9. Bolu Tape -->
+        <div class="product-bakery-card" data-category="bolu">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop" alt="Bolu Tape">
+            <span class="product-price-pill"><i class="fa-solid fa-tag"></i> Rp75.000</span>
+          </div>
+          <div class="product-content-body">
+            <div>
+              <h3 class="product-title">Bolu Tape</h3>
+              <p class="product-caption">Bolu tape panggang loyang bulat klasik dengan aroma tape legit tradisional dan taburan kismis serta keju panggang.</p>
+            </div>
+            <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20memesan%20Bolu%20Tape%20untuk%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="btn-cute-primary btn-wa-card">
+              <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- 10. Edible Cake -->
+        <div class="product-bakery-card" data-category="kue-ultah">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?q=80&w=600&auto=format&fit=crop" alt="Edible Cake">
+            <span class="product-price-pill"><i class="fa-solid fa-tag"></i> Rp320.000</span>
+          </div>
+          <div class="product-content-body">
+            <div>
+              <h3 class="product-title">Edible Cake</h3>
+              <p class="product-caption">Kue tart ulang tahun custom berbentuk hati dengan foto/gambar cetak berbahan edible ink yang 100% aman dikonsumsi.</p>
+            </div>
+            <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20memesan%20Edible%20Cake%20untuk%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="btn-cute-primary btn-wa-card">
+              <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- 11. Cinamoroll Cake -->
+        <div class="product-bakery-card" data-category="kue-ultah">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?q=80&w=600&auto=format&fit=crop" alt="Cinamoroll Cake">
+            <span class="product-price-pill"><i class="fa-solid fa-tag"></i> Rp345.000</span>
+          </div>
+          <div class="product-content-body">
+            <div>
+              <h3 class="product-title">Cinamoroll Cake</h3>
+              <p class="product-caption">Kue tart bertema karakter bernuansa pastel lembut dan ornamen manis untuk pesta ulang tahun istimewa.</p>
+            </div>
+            <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20memesan%20Cinamoroll%20Cake%20untuk%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="btn-cute-primary btn-wa-card">
+              <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- 12. Brownies Kukus -->
+        <div class="product-bakery-card" data-category="brownies">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?q=80&w=600&auto=format&fit=crop" alt="Brownies Kukus">
+            <span class="product-price-pill"><i class="fa-solid fa-tag"></i> Rp50.000</span>
+          </div>
+          <div class="product-content-body">
+            <div>
+              <h3 class="product-title">Brownies Kukus</h3>
+              <p class="product-caption">Kue brownies kukus yang lembut, moist di setiap gigitan, dan kaya rasa cokelat pekat yang tidak enek.</p>
+            </div>
+            <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20memesan%20Brownies%20Kukus%20untuk%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="btn-cute-primary btn-wa-card">
+              <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align: center;">
+        <div class="catalog-region-note">
+          <i class="fa-solid fa-map-pin" style="color: var(--dusty-rose); margin-right: 8px;"></i>
+          Pemesanan hanya tersedia untuk wilayah Tangerang.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="custom" class="custom-cake-section">
+    <div class="container custom-cake-grid">
+      <div class="custom-cake-details">
+        <h2>Buat Kue Ulang Tahunmu <span>Lebih Personal</span> 🎂</h2>
+        <p class="subtext">
+          Punya tema atau desain impian? Ceritakan kepada kami melalui WhatsApp, dan mari wujudkan kue yang sesuai dengan momen spesialmu.
+        </p>
+
+        <p style="font-weight: 700; color: var(--peach-butter); margin-bottom: 12px; font-size: 1rem;">
+          Kamu dapat berkonsultasi mengenai:
+        </p>
+        
+        <div class="consultation-items-grid">
+          <div class="consult-pill-box"><i class="fa-solid fa-wand-magic-sparkles"></i> Tema ulang tahun</div>
+          <div class="consult-pill-box"><i class="fa-solid fa-palette"></i> Warna kue</div>
+          <div class="consult-pill-box"><i class="fa-solid fa-pen-fancy"></i> Tulisan pada kue</div>
+          <div class="consult-pill-box"><i class="fa-solid fa-face-smile"></i> Karakter atau gambar</div>
+          <div class="consult-pill-box"><i class="fa-solid fa-image"></i> Referensi desain</div>
+          <div class="consult-pill-box"><i class="fa-solid fa-cake-candles"></i> Jenis kue</div>
+          <div class="consult-pill-box"><i class="fa-solid fa-users"></i> Jumlah porsi</div>
+          <div class="consult-pill-box"><i class="fa-solid fa-truck-ramp-box"></i> Waktu ambil/antar</div>
+          <div class="consult-pill-box" style="grid-column: span 2;"><i class="fa-solid fa-wallet"></i> Kisaran budget</div>
+        </div>
+
+        <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20berkonsultasi%20mengenai%20kue%20ulang%20tahun%20custom%20untuk%20acara%20di%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="btn-cute-primary" style="font-size: 1.05rem;">
+          <i class="fa-brands fa-whatsapp"></i> Konsultasi via WhatsApp
+        </a>
+      </div>
+
+      <div class="custom-callout-card">
+        <i class="fa-solid fa-gift big-icon"></i>
+        <h3>Konsultasi Langsung & Fleksibel</h3>
+        <p class="custom-pricing-notice">
+          Untuk konsultasi kue custom, silakan hubungi Dapur Henny langsung melalui WhatsApp. Harga dapat menyesuaikan jenis kue, ukuran, desain, tingkat detail, dan kebutuhan dekorasi.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cara-pesan" class="order-workflow-section">
+    <div class="container">
+      <div style="text-align: center;">
+        <h2 class="section-title">
+          <i class="fa-solid fa-clipboard-list" style="color: var(--dusty-rose);"></i> Cara Pesan
+        </h2>
+        <p style="color: var(--text-muted);">Empat langkah mudah menikmati kelezatan sajian homemade Dapur Henny</p>
+      </div>
+
+      <div class="workflow-steps-grid">
+        <!-- Langkah 1 -->
+        <div class="workflow-card">
+          <div class="workflow-heart-num">1</div>
+          <h3 class="workflow-step-name">Pilih Menu</h3>
+          <p class="workflow-step-text">Pilih kue atau camilan yang kamu inginkan dari katalog.</p>
+        </div>
+
+        <!-- Langkah 2 -->
+        <div class="workflow-card">
+          <div class="workflow-heart-num">2</div>
+          <h3 class="workflow-step-name">Hubungi Dapur Henny</h3>
+          <p class="workflow-step-text">Klik tombol Pesan via WhatsApp untuk menghubungi kami.</p>
+        </div>
+
+        <!-- Langkah 3 -->
+        <div class="workflow-card">
+          <div class="workflow-heart-num">3</div>
+          <h3 class="workflow-step-name">Sampaikan Detail</h3>
+          <p class="workflow-step-text">Informasikan produk, jumlah, tanggal pemesanan, dan kebutuhan khusus.</p>
+        </div>
+
+        <!-- Langkah 4 -->
+        <div class="workflow-card">
+          <div class="workflow-heart-num">4</div>
+          <h3 class="workflow-step-name">Konfirmasi Pesanan</h3>
+          <p class="workflow-step-text">Pesanan akan diproses setelah detail, harga, dan waktu pengambilan atau pengantaran dikonfirmasi.</p>
+        </div>
+      </div>
+
+      <div class="workflow-notes-card">
+        <h4><i class="fa-solid fa-circle-exclamation"></i> Catatan Penting:</h4>
+        <ul>
+          <li><i class="fa-solid fa-heart"></i> Pemesanan hanya melayani wilayah Tangerang.</li>
+          <li><i class="fa-solid fa-heart"></i> Untuk kue ulang tahun custom, disarankan melakukan konsultasi dan pemesanan lebih awal.</li>
+          <li><i class="fa-solid fa-heart"></i> [Tambahkan detail area Tangerang yang dilayani jika diperlukan].</li>
+          <li><i class="fa-solid fa-heart"></i> [Tambahkan informasi mengenai waktu pengambilan atau pengantaran jika diperlukan].</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeri" class="gallery-showcase-section">
+    <div class="container">
+      <div style="text-align: center;">
+        <h2 class="section-title">
+          <i class="fa-solid fa-images" style="color: var(--strawberry-pink);"></i> Sweet Moments by Dapur Henny
+        </h2>
+        <p style="color: var(--text-muted);">Dokumentasi kreasi kue dan camilan segar yang menemani kebahagiaan pelanggan kami</p>
+      </div>
+
+      <div class="gallery-masonry-grid">
+        <div class="gallery-item-tile">
+          <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop" alt="Brownies Ulang Tahun">
+          <div class="gallery-tile-overlay">Brownies Ulang Tahun</div>
+        </div>
+        <div class="gallery-item-tile">
+          <img src="https://images.unsplash.com/photo-1515037893149-de7f840978e2?q=80&w=600&auto=format&fit=crop" alt="Fudgy Brownies">
+          <div class="gallery-tile-overlay">Fudgy Brownies</div>
+        </div>
+        <div class="gallery-item-tile">
+          <img src="https://images.unsplash.com/photo-1549589237-9e70b6be4da8?q=80&w=600&auto=format&fit=crop" alt="Bolu Pisang atau Tape">
+          <div class="gallery-tile-overlay">Bolu Pisang / Tape</div>
+        </div>
+        <div class="gallery-item-tile">
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=600&auto=format&fit=crop" alt="Karipap">
+          <div class="gallery-tile-overlay">Karipap</div>
+        </div>
+        <div class="gallery-item-tile">
+          <img src="https://images.unsplash.com/photo-1587248720327-8eb72564be1e?q=80&w=600&auto=format&fit=crop" alt="Bolen">
+          <div class="gallery-tile-overlay">Bolen</div>
+        </div>
+        <div class="gallery-item-tile">
+          <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?q=80&w=600&auto=format&fit=crop" alt="Cupcake">
+          <div class="gallery-tile-overlay">Cupcake</div>
+        </div>
+        <div class="gallery-item-tile">
+          <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?q=80&w=600&auto=format&fit=crop" alt="Edible Cake">
+          <div class="gallery-tile-overlay">Edible Cake</div>
+        </div>
+        <div class="gallery-item-tile">
+          <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?q=80&w=600&auto=format&fit=crop" alt="Cinamoroll Cake">
+          <div class="gallery-tile-overlay">Cinamoroll Cake</div>
+        </div>
+        <div class="gallery-item-tile">
+          <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?q=80&w=600&auto=format&fit=crop" alt="Brownies Kukus">
+          <div class="gallery-tile-overlay">Brownies Kukus</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq-accordion-section">
+    <div class="container faq-wrapper-box">
+      <div style="text-align: center; margin-bottom: 38px;">
+        <h2 class="section-title">
+          <i class="fa-solid fa-circle-question" style="color: var(--dusty-rose);"></i> Frequently Asked Questions
+        </h2>
+        <p style="color: var(--text-muted);">Jawaban lengkap seputar pemesanan dan layanan bakery Dapur Henny</p>
+      </div>
+
+      <div class="faq-accordion-list">
+        <!-- Q1 -->
+        <div class="faq-card-item">
+          <button class="faq-trigger-btn">
+            <span>Di wilayah mana Dapur Henny melayani pemesanan?</span>
+            <div class="faq-plus-bubble"><i class="fa-solid fa-plus"></i></div>
+          </button>
+          <div class="faq-content-answer">
+            Saat ini Dapur Henny hanya melayani pemesanan dan pengantaran di wilayah Tangerang.
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="faq-card-item">
+          <button class="faq-trigger-btn">
+            <span>Apakah bisa memesan kue ulang tahun custom?</span>
+            <div class="faq-plus-bubble"><i class="fa-solid fa-plus"></i></div>
+          </button>
+          <div class="faq-content-answer">
+            Bisa. Silakan konsultasikan tema, warna, tulisan, referensi desain, ukuran, dan kebutuhan lainnya melalui WhatsApp.
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="faq-card-item">
+          <button class="faq-trigger-btn">
+            <span>Apakah tersedia formulir konsultasi di website?</span>
+            <div class="faq-plus-bubble"><i class="fa-solid fa-plus"></i></div>
+          </button>
+          <div class="faq-content-answer">
+            Tidak. Seluruh konsultasi dan pemesanan dilakukan langsung melalui WhatsApp agar detail pesanan dapat dibicarakan dengan lebih mudah.
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="faq-card-item">
+          <button class="faq-trigger-btn">
+            <span>Apakah harga kue custom sama dengan harga di katalog?</span>
+            <div class="faq-plus-bubble"><i class="fa-solid fa-plus"></i></div>
+          </button>
+          <div class="faq-content-answer">
+            Harga dapat menyesuaikan jenis kue, ukuran, desain, tingkat detail, dan kebutuhan dekorasi. Silakan konsultasikan terlebih dahulu melalui WhatsApp.
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="faq-card-item">
+          <button class="faq-trigger-btn">
+            <span>Bagaimana cara memesan?</span>
+            <div class="faq-plus-bubble"><i class="fa-solid fa-plus"></i></div>
+          </button>
+          <div class="faq-content-answer">
+            Pilih menu, klik tombol Pesan via WhatsApp, lalu sampaikan produk, jumlah, tanggal pemesanan, dan detail kebutuhanmu.
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="faq-card-item">
+          <button class="faq-trigger-btn">
+            <span>Apakah bisa memesan untuk acara tertentu?</span>
+            <div class="faq-plus-bubble"><i class="fa-solid fa-plus"></i></div>
+          </button>
+          <div class="faq-content-answer">
+            Bisa, selama tanggal dan detail pesanan telah dikonfirmasi oleh Dapur Henny melalui WhatsApp.
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="faq-card-item">
+          <button class="faq-trigger-btn">
+            <span>Apakah melayani pemesanan di luar Tangerang?</span>
+            <div class="faq-plus-bubble"><i class="fa-solid fa-plus"></i></div>
+          </button>
+          <div class="faq-content-answer">
+            Saat ini belum. Dapur Henny hanya melayani pemesanan di wilayah Tangerang.
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="faq-card-item">
+          <button class="faq-trigger-btn">
+            <span>Bagaimana cara melakukan konsultasi kue custom?</span>
+            <div class="faq-plus-bubble"><i class="fa-solid fa-plus"></i></div>
+          </button>
+          <div class="faq-content-answer">
+            Klik tombol “Konsultasi via WhatsApp” dan sampaikan tema, warna, tulisan, referensi desain, ukuran, tanggal acara, serta kebutuhan lainnya.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak" class="contact-cta-section">
+    <div class="container">
+      <h2>Yuk, Pesan <span>Kue Favoritmu!</span> ✨</h2>
+      <p style="color: #EADCD4; max-width: 620px; margin: 0 auto;">
+        Rayakan setiap momen manis dan bahagiamu bersama sajian lezat buatan tangan Dapur Henny.
+      </p>
+
+      <div class="contact-details-row">
+        <div class="contact-info-bubble">
+          <i class="fa-brands fa-instagram"></i> @dapur.henny
+        </div>
+        <div class="contact-info-bubble">
+          <i class="fa-brands fa-whatsapp"></i> 085813633707
+        </div>
+        <div class="contact-info-bubble">
+          <i class="fa-solid fa-location-dot"></i> Area layanan: Tangerang
+        </div>
+      </div>
+
+      <div class="contact-cta-buttons">
+        <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20memesan%20produk%20untuk%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="btn-cute-primary">
+          <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+        </a>
+        <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20berkonsultasi%20mengenai%20kue%20ulang%20tahun%20custom%20untuk%20acara%20di%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="btn-cute-primary">
+          <i class="fa-solid fa-comments"></i> Konsultasi Kue Custom via WhatsApp
+        </a>
+        <a href="https://www.instagram.com/dapur.henny" target="_blank" rel="noopener noreferrer" class="btn-cute-secondary" style="background: transparent; color: var(--cream); border-color: var(--cream);">
+          <i class="fa-brands fa-instagram"></i> Lihat Instagram
+        </a>
+      </div>
+
+      <div class="operational-notes-card">
+        <p><i class="fa-solid fa-clock" style="color: var(--strawberry-pink); margin-right: 8px;"></i> [Tambahkan detail area Tangerang yang dilayani]</p>
+        <p><i class="fa-solid fa-store" style="color: var(--strawberry-pink); margin-right: 8px;"></i> [Tambahkan jam operasional]</p>
+        <p><i class="fa-solid fa-truck" style="color: var(--strawberry-pink); margin-right: 8px;"></i> [Tambahkan informasi pengambilan atau pengantaran]</p>
+      </div>
+    </div>
+  </section>
+
+  <a href="https://wa.me/6285813633707?text=Halo%20Dapur%20Henny%2C%20saya%20ingin%20bertanya%20mengenai%20produk%20dan%20pemesanan%20untuk%20wilayah%20Tangerang." target="_blank" rel="noopener noreferrer" class="floating-wa-btn" aria-label="Chat WhatsApp Dapur Henny">
+    <div class="wa-icon-bubble">
+      <i class="fa-brands fa-whatsapp"></i>
+    </div>
+    <span>Chat Dapur Henny</span>
+  </a>
+
+  <footer class="main-footer">
+    <div class="container footer-grid-layout">
+      <!-- Kolom Brand -->
+      <div class="footer-brand-bio">
+        <h3>DAPUR <span>HENNY</span></h3>
+        <p class="footer-tagline">“Manisnya Momen, Dibuat dengan Hati.”</p>
+        <p class="footer-academic-info">
+          Dapur Henny adalah bisnis bakery yang dijalankan oleh mahasiswa Universitas Indonesia dari Program Studi Periklanan Kreatif untuk tugas mata kuliah Teknologi Informasi. Melayani pemesanan khusus wilayah Tangerang.
+        </p>
+      </div>
+
+      <!-- Kolom Navigasi -->
+      <div>
+        <h4 class="footer-column-title">Navigasi Cepat</h4>
+        <ul class="footer-nav-list">
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#tentang">Tentang Kami</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#custom">Kue Custom</a></li>
+          <li><a href="#cara-pesan">Cara Pesan</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </div>
+
+      <!-- Kolom Kontak & Wilayah -->
+      <div class="footer-contact-details">
+        <h4 class="footer-column-title">Kontak & Wilayah</h4>
+        <p><i class="fa-brands fa-instagram"></i> @dapur.henny</p>
+        <p><i class="fa-brands fa-whatsapp"></i> 085813633707</p>
+        <p><i class="fa-solid fa-location-dot"></i> Area Layanan: Tangerang</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <p>© 2026 Dapur Henny. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Mobile Menu Toggling
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navMenuList');
+      const navItems = document.querySelectorAll('.nav-link-item');
+
+      if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('is-open');
+          const isOpen = navLinks.classList.contains('is-open');
+          mobileBtn.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+        });
+
+        navItems.forEach(item => {
+          item.addEventListener('click', () => {
+            navLinks.classList.remove('is-open');
+            mobileBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+          });
+        });
+      }
+
+      // 2. Menu Category Filtering
+      const filterButtons = document.querySelectorAll('.filter-btn-pill');
+      const productCards = document.querySelectorAll('.product-bakery-card');
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const selectedCategory = btn.getAttribute('data-filter');
+
+          productCards.forEach(card => {
+            const cardCategories = card.getAttribute('data-category');
+            if (selectedCategory === 'all' || cardCategories.includes(selectedCategory)) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // 3. FAQ Accordion Interaction
+      const faqCards = document.querySelectorAll('.faq-card-item');
+
+      faqCards.forEach(card => {
+        const trigger = card.querySelector('.faq-trigger-btn');
+        const answer = card.querySelector('.faq-content-answer');
+
+        trigger.addEventListener('click', () => {
+          const isActive = card.classList.contains('is-active');
+
+          // Tutup item lain agar tampilan tetap rapi
+          faqCards.forEach(otherCard => {
+            if (otherCard !== card) {
+              otherCard.classList.remove('is-active');
+              otherCard.querySelector('.faq-content-answer').style.maxHeight = null;
+            }
+          });
+
+          // Buka / tutup item yang diklik
+          if (!isActive) {
+            card.classList.add('is-active');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+          } else {
+            card.classList.remove('is-active');
+            answer.style.maxHeight = null;
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
